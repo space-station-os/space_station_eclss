@@ -35,10 +35,22 @@ ament_target_dependencies(ars_system std_srvs rosidl_default_generators rclcpp s
 rosidl_target_interfaces(ars_system ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 
+add_executable(baking_process src/ars_systems/baking_process.cpp)
+ament_target_dependencies(baking_process std_srvs rosidl_default_generators rclcpp sensor_msgs)
+rosidl_target_interfaces(baking_process ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
 install(TARGETS
   ars_system
+  baking_process
   DESTINATION lib/${PROJECT_NAME})
 
+install(DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/launch
+)
+
+install(DIRECTORY config/
+  DESTINATION share/${PROJECT_NAME}/launch
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

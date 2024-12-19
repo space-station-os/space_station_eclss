@@ -1,0 +1,9 @@
+ros__parameters:
+  ars_system:
+    initial_co2_level: 400.0
+    increase_rate: 5.0
+    critical_threshold: 800.0
+    bake_reduction: 300.0
+    scrubber_efficiency: 0.9
+    station_temperature: 22.0
+    station_humidity: 50.0
